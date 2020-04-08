@@ -1,0 +1,37 @@
+# Default values for mvb-prototype-hybrid-webapp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+appName: mvb-prototype-hybrid-webapp
+version: ${project.version}
+domainName: factory.kb.codenow.com
+buildNumber: "${env.BUILD_NUMBER}"
+
+image:
+  repository: docker.factory.kb.codenow.com/oxus/mvb-prototype-hybrid-webapp
+  tag:  ${project.version}
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 4200
+  portStorybook: 6006
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

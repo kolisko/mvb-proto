@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "application.fullname" . }}
+  labels:
+    app: {{ template "application.name" . }}
+    chart: {{ template "application.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "application.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "application.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+      - name: docker-user-registry
+      volumes:
+        {{- $configMapName := .Chart.Name -}}
+        {{ range $key, $val := .Values.configFiles }}
+        - name: {{ $key | replace "." "-" }}
+          configMap:
+            name: {{ $configMapName }}
+            items:
+            - key: {{ $key }}
+              path: {{ $key }}
+        {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            {{- range $key, $val := .Values.configFiles }}
+            - name: {{ $key | replace "." "-" }}
+              mountPath: /usr/share/nginx/html/app/assets/config/{{ $key }}
+              subPath: {{ $key}}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+            - name: http-storybook
+              containerPort: {{ .Values.service.portStorybook }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
