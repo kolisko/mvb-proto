@@ -1,14 +1,16 @@
 <div class="container" fxLayout="column">
   <div fxFlex="20" fxLayoutAlign="space-around center">
-    <h3>Payment information found in QR Code:</h3>
+    <h5>Payment information found in QR Code:</h5>
   </div>
   <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-around center">
-    <input placeholder="Recipient Bank Account #">
-    <input placeholder="Variable Symbol">
-    <input placeholder="Amount to send">
+    <input placeholder="Recipient Bank Account #" class="w-50">
+    <input placeholder="Variable Symbol" class="w-50">
+    <input placeholder="Amount to send" class="w-50">
   </div>
+  <div fxFlex></div>
   <div fxFlex="20" fxLayoutAlign="space-around center">
-    <button type="button" class="btn btn-secondary" (click)="onCancelClick()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="onSendClick()">Send</button>
+    <button type="button" class="btn btn-secondary w-25" (click)="onCancelClick()">Cancel</button>
+    <button type="button" class="btn btn-primary w-25" (click)="onSendClick()">Send</button>
   </div>
+  <div fxFlex="10"></div>
 </div>
