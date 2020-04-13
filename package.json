@@ -1,6 +1,6 @@
 {
   "name": "mvb-prototype-hybrid-webapp",
-  "version": "1.0.3-SNAPSHOT",
+  "version": "1.0.2",
   "scripts": {
     "ng": "ng",
     "start": "cp ./config/* ./src/assets/config/ & ng serve --host 0.0.0.0 --disable-host-check",
