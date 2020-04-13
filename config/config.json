@@ -1,3 +1,4 @@
 {
-  "appName": "TypeScript/Angular Scaffolder"
+  "appName": "TypeScript/Angular Scaffolder",
+  "loginUrl": "https://mvb-application-fat.box.kb.codenow.com/login"
 }
