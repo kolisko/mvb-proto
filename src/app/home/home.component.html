@@ -10,8 +10,13 @@
     <input placeholder="Transaction Search" class="w-75 mx-1">
     <button type="button" class="btn btn-secondary w-25 mx-1" (click)="onSearchClick()">Search</button>
   </div>
-  <div fxFlex="30" fxLayout="column" fxLayoutAlign="space-around start">
-    <p *ngFor="let t of appService.transactions">{{ t }}</p>
+  <div fxFlex="30" fxLayout="column" fxLayoutAlign="space-around start" class="mx-2">
+    <ng-container *ngFor="let t of appService.transactions">
+      <p>From: {{ t.fromAccount }}</p>
+      <p>To: {{ t.toAccount }}</p>
+      <p>Amount: {{ t.amount }}</p>
+      <p>Date: {{ t.issueDate }}</p>
+    </ng-container>
   </div>
   <p></p>
 </div>

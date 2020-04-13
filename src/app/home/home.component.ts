@@ -34,10 +34,9 @@ export class HomeComponent implements OnInit {
   onSearchClick(): void {
     const transactionSearchUrl: string = Configuration.get('transactionSearchUrl');
     transactionSearchUrl.replace('{clientNumber}', this.appService.clientId);
-    this.httpClient.get(transactionSearchUrl).subscribe((next: any) => {
-      const transactionSearchResult = next;
-      this.appService.transactions = [];
-      this.appService.transactions.push(transactionSearchResult.accountNumber);
+    this.httpClient.post(transactionSearchUrl, null).subscribe((next: any) => {
+      const transactionSearchResult = next.transactionsFound;
+      this.appService.transactions = transactionSearchResult;
     }, error => {
       this.appService.alertMsg = 'AccountOverview Error';
     });
