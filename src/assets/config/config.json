@@ -3,5 +3,6 @@
   "loginUrl": "https://mvb-application-fat.box.kb.codenow.com/login",
   "accountOverviewUrl": "https://mvb-application-fat.box.kb.codenow.com/readmodel/client/{clientNumber}/accountOverview",
   "transactionSearchUrl": "https://mvb-application-fat.box.kb.codenow.com/transactionSearch",
-  "analyseQrCodeUrl": "https://mvb-application-fat.box.kb.codenow.com/analyseQrCode"
+  "analyseQrCodeUrl": "https://mvb-application-fat.box.kb.codenow.com/analyseQrCode",
+  "paymentUrl": "https://mvb-application-fat.box.kb.codenow.com/pay"
 }
