@@ -8,13 +8,10 @@
   </div>
   <div fxFlex="20" fxLayoutAlign="space-around center">
     <input placeholder="Transaction Search" class="w-75 mx-1">
-    <button type="button" class="btn btn-secondary w-25 mx-1">Search</button>
+    <button type="button" class="btn btn-secondary w-25 mx-1" (click)="onSearchClick()">Search</button>
   </div>
   <div fxFlex="30" fxLayout="column" fxLayoutAlign="space-around start">
-    <p>Item1</p>
-    <p>Item2</p>
-    <p>Item3</p>
-    <p>Item4</p>
+    <p *ngFor="let t of appService.transactions">{{ t }}</p>
   </div>
   <p></p>
 </div>

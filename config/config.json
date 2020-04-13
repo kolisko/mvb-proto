@@ -1,5 +1,6 @@
 {
   "appName": "TypeScript/Angular Scaffolder",
   "loginUrl": "https://mvb-application-fat.box.kb.codenow.com/login",
-  "accountOverviewUrl": "https://mvb-application-fat.box.kb.codenow.com/readmodel/client/{clientNumber}/accountOverview"
+  "accountOverviewUrl": "https://mvb-application-fat.box.kb.codenow.com/readmodel/client/{clientNumber}/accountOverview",
+  "transactionSearchUrl": "https://mvb-application-fat.box.kb.codenow.com/readmodel/authorization/{clientNumber}/transactionSearch"
 }

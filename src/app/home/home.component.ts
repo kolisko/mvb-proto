@@ -31,4 +31,16 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['camera']);
   }
 
+  onSearchClick(): void {
+    const transactionSearchUrl: string = Configuration.get('transactionSearchUrl');
+    transactionSearchUrl.replace('{clientNumber}', this.appService.clientId);
+    this.httpClient.get(transactionSearchUrl).subscribe((next: any) => {
+      const transactionSearchResult = next;
+      this.appService.transactions = [];
+      this.appService.transactions.push(transactionSearchResult.accountNumber);
+    }, error => {
+      this.appService.alertMsg = 'AccountOverview Error';
+    });
+  }
+
 }

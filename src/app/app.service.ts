@@ -12,4 +12,5 @@ export class AppService {
   clientId: string;
   accountNumber: string;
   balance: number;
+  transactions: Array<string> = [];
 }
