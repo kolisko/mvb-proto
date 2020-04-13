@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       const transactionSearchResult = next.transactionsFound;
       this.appService.transactions = transactionSearchResult;
     }, error => {
-      this.appService.alertMsg = 'AccountOverview Error';
+      this.appService.alertMsg = 'TransactionSearch Error';
     });
   }
 

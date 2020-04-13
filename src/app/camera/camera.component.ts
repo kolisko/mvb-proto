@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {Configuration} from '../../config-loader';
+import {AppService} from '../app.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-camera',
@@ -8,12 +11,30 @@ import {Router} from '@angular/router';
 })
 export class CameraComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              public appService: AppService,
+              private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   onUseQRClick(): void {
-    this.router.navigate(['payment']);
+    const analyseQrCodeUrl: string = Configuration.get('analyseQrCodeUrl');
+    analyseQrCodeUrl.replace('{clientNumber}', this.appService.clientId);
+    this.httpClient.post(analyseQrCodeUrl, null).subscribe((next: any) => {
+      if (!next.valid) {
+        this.appService.alertMsg = 'QR Code is not valid';
+        return;
+      }
+
+      const pi = next.paymentInstruction;
+      this.appService.piAccount = pi.toAccount;
+      this.appService.piAmount = pi.amount;
+      this.appService.piVS = pi.variableSymbol;
+
+      this.router.navigate(['payment']);
+    }, error => {
+      this.appService.alertMsg = 'QR Code analysing Error';
+    });
   }
 }

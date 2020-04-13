@@ -13,4 +13,8 @@ export class AppService {
   accountNumber: string;
   balance: number;
   transactions: Array<any> = [];
+
+  piAccount: string;
+  piAmount: number;
+  piVS: string;
 }

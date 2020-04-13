@@ -3,9 +3,9 @@
     <h5>Payment information found in QR Code:</h5>
   </div>
   <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-around center">
-    <input placeholder="Recipient Bank Account #" class="w-100">
-    <input placeholder="Variable Symbol" class="w-100">
-    <input placeholder="Amount to send" class="w-100">
+    <input placeholder="Recipient Bank Account #" class="w-100" [value]="appService.piAccount">
+    <input placeholder="Variable Symbol" class="w-100" [value]="appService.piVS">
+    <input placeholder="Amount to send" class="w-100" [value]="appService.piAmount">
   </div>
   <div fxFlex></div>
   <div fxFlex="20" fxLayoutAlign="space-around center">
