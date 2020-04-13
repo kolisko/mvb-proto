@@ -9,7 +9,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-const configLoader = new ConfigurationLoader('assets/config/config.json?v=' + new Date().getTime());
+//const configLoader = new ConfigurationLoader('assets/config/config.json?v=' + new Date().getTime());
+const configLoader = new ConfigurationLoader('assets/config/config.json');
 configLoader.load(() => {
   // tslint:disable-next-line:no-console
   console.info('Configuration loaded -' + Configuration.get('appName', true));
