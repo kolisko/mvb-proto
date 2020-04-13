@@ -1,2 +1,2 @@
-<alert *ngIf="appService.alertMsg" type="danger" [dismissOnTimeout]="500000" (onClosed)="onClosed()">{{ appService.alertMsg }}</alert>
+<alert *ngIf="appService.alertMsg" type="danger" [dismissOnTimeout]="5000" (onClosed)="onClosed()">{{ appService.alertMsg }}</alert>
 <router-outlet></router-outlet>
