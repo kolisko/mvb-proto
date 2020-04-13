@@ -19,7 +19,9 @@ export class LandingComponent implements OnInit {
   }
 
   onTouchIdClick(): void {
-    this.httpClient.post(Configuration.get('loginUrl'), null).subscribe(next => {
+    this.httpClient.post(Configuration.get('loginUrl'), null).subscribe((next: any) => {
+      this.appService.email = next.sessionInfo.email;
+      this.appService.clientId = next.sessionInfo.clientId;
       this.router.navigate(['home']);
     }, error => {
       this.appService.alertMsg = 'Authentication Error';
