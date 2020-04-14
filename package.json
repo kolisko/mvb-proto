@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "cp ./config/* ./src/assets/config/ & ng serve --host 0.0.0.0 --disable-host-check",
-    "build": "cp ./config/* ./src/assets/config/ & ng build & build-storybook -s public",
+    "build": "cp ./config/* ./src/assets/config/ & ng build --prod & build-storybook -s public",
     "test": "cp ./config/* ./src/assets/config/ & ng test",
     "lint": "cp ./config/* ./src/assets/config/ & ng lint",
     "e2e": "cp ./config/* ./src/assets/config/ & ng e2e",
