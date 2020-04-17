@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {Configuration} from '../../config-loader';
 import {AppService} from '../app.service';
@@ -14,6 +14,9 @@ export class CameraComponent implements OnInit {
   constructor(private router: Router,
               public appService: AppService,
               private httpClient: HttpClient) { }
+
+              @Input() testovaciInput;
+  @Output() testovaciOutputx;
 
   ngOnInit(): void {
   }
