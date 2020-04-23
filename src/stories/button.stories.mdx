@@ -1,0 +1,109 @@
+import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
+import {action} from '@storybook/addon-actions';
+import {boolean, text, withKnobs} from '@storybook/addon-knobs';
+import {ButtonComponent} from '../app/button/button.component';
+import {AppComponent} from '../app/app.component';
+
+<Meta title='Button MDX'
+decorators={[withKnobs]}
+component={ButtonComponent}
+parameters={{
+  notes: 'Button notes'
+}}/>
+
+# Button Angular Component
+<Preview>
+  <Story name='Button Component' height='60px'>
+    {{
+      component: ButtonComponent,
+      props: {
+        title: text('text', 'text'),
+        btnClick: action('click')
+      }
+    }}
+  </Story>
+  <Story name='Button Component 2' height='60px'>
+  {{
+    component: ButtonComponent,
+    props: {
+      title: text('text', 'text2'),
+      btnClick: action('click')
+    }
+  }}
+  </Story>
+</Preview>
+
+# Button HTML/Bootstrap
+
+<Preview>
+  <Story name='primary' height='60px'>
+  {{
+    template: `
+        <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
+            {{title}}
+        </button>
+       `,
+      props: {
+        title: text('text', 'Primary Button'),
+        onClick: action('click'),
+        disabled: boolean('disabled', false)
+      }
+  }}
+  </Story>
+  <Story name='secondary' height='60px'>
+  {{
+    template: `
+        <button class="btn btn-secondary" (click)="onClick($event)" [disabled]="disabled">
+            {{title}}
+        </button>
+       `,
+      props: {
+        title: text('text', 'Secondary Button'),
+        onClick: action('click'),
+        disabled: boolean('disabled', false)
+      }
+  }}
+  </Story>
+  <Story name='search' height='60px'>
+  {{
+    template: `
+        <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
+          <div *ngIf="searching" class="spinner-border spinner-border-sm text-light"></div>
+            {{title}}
+        </button>
+       `,
+      props: {
+        title: text('text', 'Search Button'),
+        onClick: action('click'),
+        disabled: boolean('disabled', false),
+        searching: boolean('searching', true)
+      }
+  }}
+  </Story>
+</Preview>
+
+Some **markdown** description, or whatever you want.
+
+## Props
+
+<Props of={ButtonComponent} />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem
+    title="theme.color.greyscale"
+    subtitle="Some of the greys"
+    colors={['#FFFFFF', '#F8F8F8', '#F3F3F3']}
+  />
+</ColorPalette>
+
+# Icons
+
+<IconGallery>
+  <IconItem name="add"><ExampleIcon icon="add" /></IconItem>
+</IconGallery>
+
+# Typography
+
+<Typeset fontSizes={['12px', '14px', '18px', '24px', '30px', '38px', '48px', '60px']} sampleText="Heading" />
