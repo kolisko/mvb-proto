@@ -67,12 +67,12 @@ parameters={{
 {{
   template: `
       <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
-        <div *ngIf="searching" class="spinner-border text-light"></div>
+        <div *ngIf="searching" class="spinner-border spinner-border-sm text-light"></div>
           {{title}}
       </button>
      `,
     props: {
-      title: text('text', 'Primary Button'),
+      title: text('text', 'Search Button'),
       onClick: action('click'),
       disabled: boolean('disabled', false),
       searching: boolean('searching', true)

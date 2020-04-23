@@ -1399,18 +1399,18 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/testovaci.stories.ts",
+                "file": "src/stories/transaction.stories.ts",
                 "type": "",
-                "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
+                "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
                 "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/transaction.stories.ts",
+                "file": "src/stories/testovaci.stories.ts",
                 "type": "",
-                "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
+                "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
                 "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
             },
             {
@@ -1514,17 +1514,6 @@
                     "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\" [disabled]=\"disabled\">\n   `,\n    props: {\n      placeholder: text('placeholder', 'fill something...'),\n      inputValue: text('value', 'default value'),\n      disabled: boolean('disabled', true)\n    },\n  })"
                 }
             ],
-            "src/stories/testovaci.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/testovaci.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
-                    "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
-                }
-            ],
             "src/stories/transaction.stories.ts": [
                 {
                     "name": "Default",
@@ -1533,6 +1522,17 @@
                     "file": "src/stories/transaction.stories.ts",
                     "type": "",
                     "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
+                    "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
+                }
+            ],
+            "src/stories/testovaci.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/testovaci.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
                     "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
                 }
             ],
