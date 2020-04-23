@@ -15,6 +15,7 @@ import {AlertModule} from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatInputModule} from '@angular/material/input';
     LandingComponent,
     HomeComponent,
     CameraComponent,
-    PaymentComponent
+    PaymentComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

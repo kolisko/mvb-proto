@@ -1,0 +1,87 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import {action} from '@storybook/addon-actions';
+import {boolean, text, withKnobs} from '@storybook/addon-knobs';
+import {ButtonComponent} from '../app/button/button.component';
+import {AppComponent} from '../app/app.component';
+
+<Meta title='Button MDX'
+decorators={[withKnobs]}
+component={ButtonComponent}
+parameters={{
+  notes: 'Button notes'
+}}/>
+
+# Button Component xxx
+
+<Story name='ButtonComponent' height='60px'>
+{{
+  component: ButtonComponent,
+  props: {
+    title: text('text', 'text'),
+    btnClick: action('click')
+  }
+}}
+</Story>
+
+<Story name='ButtonComponent2' height='60px'>
+{{
+  component: ButtonComponent,
+  props: {
+    title: text('text', 'text2'),
+    btnClick: action('click')
+  }
+}}
+</Story>
+
+<Story name='primary' height='60px'>
+{{
+  template: `
+      <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
+          {{title}}
+      </button>
+     `,
+    props: {
+      title: text('text', 'Primary Button'),
+      onClick: action('click'),
+      disabled: boolean('disabled', false)
+    }
+}}
+</Story>
+
+<Story name='secondary' height='60px'>
+{{
+  template: `
+      <button class="btn btn-secondary" (click)="onClick($event)" [disabled]="disabled">
+          {{title}}
+      </button>
+     `,
+    props: {
+      title: text('text', 'Secondary Button'),
+      onClick: action('click'),
+      disabled: boolean('disabled', false)
+    }
+}}
+</Story>
+
+<Story name='search' height='60px'>
+{{
+  template: `
+      <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
+        <div *ngIf="searching" class="spinner-border text-light"></div>
+          {{title}}
+      </button>
+     `,
+    props: {
+      title: text('text', 'Primary Button'),
+      onClick: action('click'),
+      disabled: boolean('disabled', false),
+      searching: boolean('searching', true)
+    }
+}}
+</Story>
+
+Some **markdown** description, or whatever you want.
+
+
+## Props
+

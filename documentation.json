@@ -749,8 +749,77 @@
             "templateData": "<alert *ngIf=\"appService.alertMsg\" type=\"danger\" [dismissOnTimeout]=\"5000\" (onClosed)=\"onClosed()\">{{ appService.alertMsg }}</alert>\n<router-outlet></router-outlet>\n"
         },
         {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-1ba93e37c3203f2f89abd48aebe40126",
+            "file": "src/app/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'tlacitko'",
+                    "line": 10
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "btnClick",
+                    "defaultValue": "new EventEmitter<any>()",
+                    "line": 11,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent implements OnInit {\n\n  @Input() title = 'tlacitko';\n  @Output() btnClick: EventEmitter<any> = new EventEmitter<any>();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<button class=\"btn btn-primary\" (click)=\"btnClick.emit($event)\">\n  {{ title }}\n</button>\n"
+        },
+        {
             "name": "CameraComponent",
-            "id": "component-CameraComponent-6b368a5a3deca55e3c594e8e1f6c0f06",
+            "id": "component-CameraComponent-9329e52fc6a4f557fed1f2293682194a",
             "file": "src/app/camera/camera.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -769,13 +838,17 @@
             "inputsClass": [
                 {
                     "name": "testovaciInput",
-                    "line": 18
+                    "defaultValue": "true",
+                    "description": "<p>Nejaka dokumentace k testovacimu inputu</p>\n",
+                    "line": 21,
+                    "type": "boolean"
                 }
             ],
             "outputsClass": [
                 {
                     "name": "testovaciOutputx",
-                    "line": 19
+                    "line": 22,
+                    "type": "EventEmitter<any>"
                 }
             ],
             "propertiesClass": [
@@ -797,7 +870,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21
+                    "line": 24
                 },
                 {
                     "name": "onUseQRClick",
@@ -805,7 +878,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24
+                    "line": 27
                 }
             ],
             "hostBindings": [],
@@ -813,7 +886,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, Output} from '@angular/core';\nimport {Router} from '@angular/router';\nimport {Configuration} from '../../config-loader';\nimport {AppService} from '../app.service';\nimport {HttpClient} from '@angular/common/http';\n\n@Component({\n  selector: 'app-camera',\n  templateUrl: './camera.component.html',\n  styleUrls: ['./camera.component.scss']\n})\nexport class CameraComponent implements OnInit {\n\n  constructor(private router: Router,\n              public appService: AppService,\n              private httpClient: HttpClient) { }\n\n              @Input() testovaciInput;\n  @Output() testovaciOutputx;\n\n  ngOnInit(): void {\n  }\n\n  onUseQRClick(): void {\n    const analyseQrCodeUrl: string = Configuration.get('analyseQrCodeUrl');\n    analyseQrCodeUrl.replace('{clientNumber}', this.appService.clientId);\n    this.httpClient.post(analyseQrCodeUrl, null).subscribe((next: any) => {\n      if (!next.valid) {\n        this.appService.alertMsg = 'QR Code is not valid';\n        return;\n      }\n\n      const pi = next.paymentInstruction;\n      this.appService.piAccount = pi.toAccount;\n      this.appService.piAmount = pi.amount;\n      this.appService.piVS = pi.variableSymbol;\n\n      this.router.navigate(['payment']);\n    }, error => {\n      this.appService.alertMsg = 'QR Code analysing Error';\n    });\n  }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {Router} from '@angular/router';\nimport {Configuration} from '../../config-loader';\nimport {AppService} from '../app.service';\nimport {HttpClient} from '@angular/common/http';\n\n@Component({\n  selector: 'app-camera',\n  templateUrl: './camera.component.html',\n  styleUrls: ['./camera.component.scss']\n})\nexport class CameraComponent implements OnInit {\n\n  constructor(private router: Router,\n              public appService: AppService,\n              private httpClient: HttpClient) { }\n\n  /**\n   * Nejaka dokumentace k testovacimu inputu\n   */\n  @Input() testovaciInput: boolean = true;\n  @Output() testovaciOutputx: EventEmitter<any>;\n\n  ngOnInit(): void {\n  }\n\n  onUseQRClick(): void {\n    const analyseQrCodeUrl: string = Configuration.get('analyseQrCodeUrl');\n    analyseQrCodeUrl.replace('{clientNumber}', this.appService.clientId);\n    this.httpClient.post(analyseQrCodeUrl, null).subscribe((next: any) => {\n      if (!next.valid) {\n        this.appService.alertMsg = 'QR Code is not valid';\n        return;\n      }\n\n      const pi = next.paymentInstruction;\n      this.appService.piAccount = pi.toAccount;\n      this.appService.piAmount = pi.amount;\n      this.appService.piVS = pi.variableSymbol;\n\n      this.router.navigate(['payment']);\n    }, error => {\n      this.appService.alertMsg = 'QR Code analysing Error';\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1223,6 +1296,9 @@
                             "name": "AppComponent"
                         },
                         {
+                            "name": "ButtonComponent"
+                        },
+                        {
                             "name": "CameraComponent"
                         },
                         {
@@ -1314,7 +1390,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/transaction.stories.ts",
+                "file": "src/stories/input.stories.ts",
                 "type": "",
                 "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
                 "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
@@ -1332,18 +1408,10 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/input.stories.ts",
+                "file": "src/stories/transaction.stories.ts",
                 "type": "",
                 "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
                 "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
-            },
-            {
-                "name": "disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
-                "type": "",
-                "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-secondary\" [disabled]=\"disabled\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Cancel Button'),\n      onClick: action('click'),\n      disabled: boolean('disabled', true)\n    },\n  })"
             },
             {
                 "name": "disabled",
@@ -1357,26 +1425,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
             },
             {
-                "name": "primary",
+                "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
-                "type": "",
-                "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-primary\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n  props: {\n    title: text('text', 'Primary Button'),\n    onClick: action('click')\n  },\n})",
-                "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "require",
@@ -1384,22 +1443,6 @@
                 "subtype": "variable",
                 "file": "src/test.ts",
                 "type": "literal type"
-            },
-            {
-                "name": "search",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
-                "type": "",
-                "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-primary\"\n            [disabled]=\"searching\"\n            (click)=\"onClick($event)\">\n            <div *ngIf=\"searching\" class=\"spinner-border text-light\"></div>\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Cancel Button'),\n      onClick: action('click'),\n      searching: boolean('searching', true)\n    },\n  })"
-            },
-            {
-                "name": "secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
-                "type": "",
-                "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-secondary\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Secondary Button'),\n      onClick: action('click')\n    },\n  })"
             }
         ],
         "functions": [],
@@ -1452,28 +1495,6 @@
                     "type": "literal type"
                 }
             ],
-            "src/stories/transaction.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/transaction.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
-                    "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
-                }
-            ],
-            "src/stories/testovaci.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/testovaci.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
-                    "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
-                }
-            ],
             "src/stories/input.stories.ts": [
                 {
                     "name": "Default",
@@ -1493,49 +1514,26 @@
                     "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\" [disabled]=\"disabled\">\n   `,\n    props: {\n      placeholder: text('placeholder', 'fill something...'),\n      inputValue: text('value', 'default value'),\n      disabled: boolean('disabled', true)\n    },\n  })"
                 }
             ],
-            "src/stories/button.stories.ts": [
+            "src/stories/testovaci.stories.ts": [
                 {
-                    "name": "disabled",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
+                    "file": "src/stories/testovaci.stories.ts",
                     "type": "",
-                    "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-secondary\" [disabled]=\"disabled\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Cancel Button'),\n      onClick: action('click'),\n      disabled: boolean('disabled', true)\n    },\n  })"
-                },
-                {
-                    "name": "primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-primary\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n  props: {\n    title: text('text', 'Primary Button'),\n    onClick: action('click')\n  },\n})",
+                    "defaultValue": "() => (\n  {\n    component: CameraComponent,\n  props: {\n\n  },\n})",
                     "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
-                },
-                {
-                    "name": "search",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-primary\"\n            [disabled]=\"searching\"\n            (click)=\"onClick($event)\">\n            <div *ngIf=\"searching\" class=\"spinner-border text-light\"></div>\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Cancel Button'),\n      onClick: action('click'),\n      searching: boolean('searching', true)\n    },\n  })"
-                },
-                {
-                    "name": "secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => (\n  {\n    template: `\n    <button class=\"btn btn-secondary\" (click)=\"onClick($event)\">\n        {{title}}\n    </button>\n   `,\n    props: {\n      title: text('text', 'Secondary Button'),\n      onClick: action('click')\n    },\n  })"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/stories/transaction.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "file": "src/stories/transaction.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => (\n  {\n    template: `\n    <input class=\"form-control\" placeholder=\"{{ placeholder }}\" [value]=\"inputValue\">\n   `,\n  props: {\n    placeholder: text('placeholder', 'fill something...'),\n    inputValue: text('value', 'default value')\n  },\n})",
+                    "description": "<ul>\n<li>blabla</li>\n<li>blabla</li>\n</ul>\n"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -1546,6 +1544,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },
@@ -1611,7 +1619,7 @@
         ]
     },
     "coverage": {
-        "count": 23,
+        "count": 22,
         "status": "low",
         "files": [
             {
@@ -1642,12 +1650,21 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/camera/camera.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "CameraComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coveragePercent": 14,
+                "coverageCount": "1/7",
                 "status": "low"
             },
             {
@@ -1730,46 +1747,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "configLoader",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "disabled",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "primary",
-                "coveragePercent": 100,
-                "coverageCount": "1/1",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "search",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "secondary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

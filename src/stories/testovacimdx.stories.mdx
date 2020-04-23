@@ -1,0 +1,21 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { CameraComponent } from '../app/camera/camera.component';
+
+<Meta title='Testovaci Component'
+  component={CameraComponent}
+  parameters={{
+    notes: 'Button notes'
+  }}/>
+
+# Camera Component xxx
+
+Some **markdown** description, or whatever you want.
+
+<Story name='basic' height='400px'>{{
+  component: CameraComponent,
+  props: {},
+}}</Story>
+
+## Props
+
+<Props of={CameraComponent} />

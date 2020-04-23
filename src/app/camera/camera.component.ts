@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {Configuration} from '../../config-loader';
 import {AppService} from '../app.service';
@@ -15,8 +15,11 @@ export class CameraComponent implements OnInit {
               public appService: AppService,
               private httpClient: HttpClient) { }
 
-              @Input() testovaciInput;
-  @Output() testovaciOutputx;
+  /**
+   * Nejaka dokumentace k testovacimu inputu
+   */
+  @Input() testovaciInput: boolean = true;
+  @Output() testovaciOutputx: EventEmitter<any>;
 
   ngOnInit(): void {
   }
