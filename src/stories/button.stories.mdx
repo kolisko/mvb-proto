@@ -2,41 +2,39 @@ import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typ
 import {action} from '@storybook/addon-actions';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
 import {ButtonComponent} from '../app/button/button.component';
-import {AppComponent} from '../app/app.component';
 
-<Meta title='Button MDX'
+<Meta title='Button'
 decorators={[withKnobs]}
 component={ButtonComponent}
 parameters={{
-  notes: 'Button notes'
+  notes: 'Notes'
 }}/>
 
 # Button Angular Component
+
+Example of custom Angular `ButtonComponent`
 <Preview>
   <Story name='Button Component' height='60px'>
     {{
       component: ButtonComponent,
       props: {
-        title: text('text', 'text'),
+        title: text('text', 'Click Me'),
         btnClick: action('click')
       }
     }}
   </Story>
-  <Story name='Button Component 2' height='60px'>
-  {{
-    component: ButtonComponent,
-    props: {
-      title: text('text', 'text2'),
-      btnClick: action('click')
-    }
-  }}
-  </Story>
 </Preview>
+
+## Properties - ButtonComponent
+
+<Props of={ButtonComponent} />
 
 # Button HTML/Bootstrap
 
+Examples of various plain HTML and Bootstrap Buttons usage
+
 <Preview>
-  <Story name='primary' height='60px'>
+  <Story name='Primary Button' height='60px'>
   {{
     template: `
         <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
@@ -50,7 +48,7 @@ parameters={{
       }
   }}
   </Story>
-  <Story name='secondary' height='60px'>
+  <Story name='Secondary Button' height='60px'>
   {{
     template: `
         <button class="btn btn-secondary" (click)="onClick($event)" [disabled]="disabled">
@@ -64,7 +62,7 @@ parameters={{
       }
   }}
   </Story>
-  <Story name='search' height='60px'>
+  <Story name='Search Button' height='60px'>
   {{
     template: `
         <button class="btn btn-primary" (click)="onClick($event)" [disabled]="disabled">
@@ -81,12 +79,6 @@ parameters={{
   }}
   </Story>
 </Preview>
-
-Some **markdown** description, or whatever you want.
-
-## Props
-
-<Props of={ButtonComponent} />
 
 # Colors
 

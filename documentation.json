@@ -1102,7 +1102,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <h3>Account balance ${{ appService.balance }}</h3>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\">Pay Manually</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onPayWithQRClick()\">Pay with QR</button>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <mat-form-field class=\"w-75 mx-1\">\n      <mat-label>Transaction Search</mat-label>\n      <input matInput>\n    </mat-form-field>\n    <button type=\"button\" class=\"btn btn-secondary w-25 mx-1\" (click)=\"onSearchClick()\">Search</button>\n  </div>\n  <div fxFlex=\"30\" fxLayoutAlign=\"space-around start\" class=\"mx-2\">\n    <app-transaction-list [transactions]=\"appService.transactions\"></app-transaction-list>\n  </div>\n  <p></p>\n</div>\n"
+            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <h3>Account balance ${{ appService.balance }}</h3>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\">Pay Manually</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onPayWithQRClick()\">Pay with QR</button>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <mat-form-field class=\"w-75 mx-1\">\n      <mat-label>Transaction Search</mat-label>\n      <input matInput>\n    </mat-form-field>\n    <button type=\"button\" class=\"btn btn-secondary w-25 mx-1\" (click)=\"onSearchClick()\">Search</button>\n  </div>\n  <div fxFlex=\"30\" fxLayoutAlign=\"space-around center\" class=\"mx-2\">\n    <app-transaction-list [transactions]=\"appService.transactions\" class=\"w-100\"></app-transaction-list>\n  </div>\n  <p></p>\n</div>\n"
         },
         {
             "name": "LandingComponent",
@@ -1398,7 +1398,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"row\">\n  <div class=\"col-6\">\n    <span class=\"font-weight-bold\">{{ issueDate | date }}</span>\n  </div>\n  <div class=\"col-6\">\n    <span [class.text-success]=\"amount > 0\" class=\"font-weight-bold float-right\">{{ amount | number}} CZK</span>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-12\">\n    <span class=\"font-weight-light\">{{ amount > 0 ? fromAccount : toAccount }}</span>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"row\">\n  <div class=\"col-6\">\n    <span class=\"font-weight-bold\">{{ issueDate | date }}</span>\n  </div>\n  <div class=\"col-6\">\n    <span [class.text-success]=\"amount > 0\" class=\"font-weight-bold float-right\">{{ amount > 0 ? '+':'' }}{{ amount | number}} CZK</span>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-12\">\n    <span class=\"font-weight-light\">{{ amount > 0 ? fromAccount : toAccount }}</span>\n  </div>\n</div>\n"
         },
         {
             "name": "TransactionListComponent",
@@ -1483,7 +1483,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"w-100\">\n  <ng-container *ngTemplateOutlet=\"isEmpty(transactions) ? noTransaction : someTransaction\">\n  </ng-container>\n\n  <ng-template #noTransaction>\n    No transactions yet\n  </ng-template>\n  <ng-template #someTransaction>\n    <app-transaction *ngFor=\"let t of transactions\"\n                     [toAccount]=\"t.toAccount\"\n                     [fromAccount]=\"t.fromAccount\"\n                     [issueDate]=\"t.issueDate\"\n                     [amount]=\"t.amount\"\n    ></app-transaction>\n  </ng-template>\n</div>\n"
+            "templateData": "<ng-container *ngTemplateOutlet=\"isEmpty(transactions) ? noTransaction : someTransaction\">\n</ng-container>\n\n<ng-template #noTransaction>\n  <p class=\"text-center\">No transactions yet</p>\n</ng-template>\n\n<ng-template #someTransaction>\n  <app-transaction *ngFor=\"let t of transactions\"\n                   [toAccount]=\"t.toAccount\"\n                   [fromAccount]=\"t.fromAccount\"\n                   [issueDate]=\"t.issueDate\"\n                   [amount]=\"t.amount\"\n  ></app-transaction>\n</ng-template>\n"
         }
     ],
     "modules": [
