@@ -1,16 +1,15 @@
-<div class="w-100">
-  <ng-container *ngTemplateOutlet="isEmpty(transactions) ? noTransaction : someTransaction">
-  </ng-container>
+<ng-container *ngTemplateOutlet="isEmpty(transactions) ? noTransaction : someTransaction">
+</ng-container>
 
-  <ng-template #noTransaction>
-    No transactions yet
-  </ng-template>
-  <ng-template #someTransaction>
-    <app-transaction *ngFor="let t of transactions"
-                     [toAccount]="t.toAccount"
-                     [fromAccount]="t.fromAccount"
-                     [issueDate]="t.issueDate"
-                     [amount]="t.amount"
-    ></app-transaction>
-  </ng-template>
-</div>
+<ng-template #noTransaction>
+  <p class="text-center">No transactions yet</p>
+</ng-template>
+
+<ng-template #someTransaction>
+  <app-transaction *ngFor="let t of transactions"
+                   [toAccount]="t.toAccount"
+                   [fromAccount]="t.fromAccount"
+                   [issueDate]="t.issueDate"
+                   [amount]="t.amount"
+  ></app-transaction>
+</ng-template>

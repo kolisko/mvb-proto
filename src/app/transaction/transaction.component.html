@@ -3,7 +3,7 @@
     <span class="font-weight-bold">{{ issueDate | date }}</span>
   </div>
   <div class="col-6">
-    <span [class.text-success]="amount > 0" class="font-weight-bold float-right">{{ amount | number}} CZK</span>
+    <span [class.text-success]="amount > 0" class="font-weight-bold float-right">{{ amount > 0 ? '+':'' }}{{ amount | number}} CZK</span>
   </div>
 </div>
 
