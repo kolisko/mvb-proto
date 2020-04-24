@@ -13,13 +13,8 @@
     </mat-form-field>
     <button type="button" class="btn btn-secondary w-25 mx-1" (click)="onSearchClick()">Search</button>
   </div>
-  <div fxFlex="30" fxLayout="column" fxLayoutAlign="space-around start" class="mx-2">
-    <ng-container *ngFor="let t of appService.transactions">
-      <p>From: {{ t.fromAccount }}</p>
-      <p>To: {{ t.toAccount }}</p>
-      <p>Amount: {{ t.amount }}</p>
-      <p>Date: {{ t.issueDate }}</p>
-    </ng-container>
+  <div fxFlex="30" fxLayoutAlign="space-around start" class="mx-2">
+    <app-transaction-list [transactions]="appService.transactions"></app-transaction-list>
   </div>
   <p></p>
 </div>

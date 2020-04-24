@@ -1,0 +1,47 @@
+import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
+import {action} from '@storybook/addon-actions';
+import {boolean, text, withKnobs, number} from '@storybook/addon-knobs';
+import {TransactionComponent} from '../app/transaction/transaction.component';
+
+<Meta title='Transaction'
+decorators={[withKnobs]}
+component={TransactionComponent}
+parameters={{
+  notes: 'Notes'
+}}/>
+
+# Incoming Transaction
+Incoming transaction has different color than outgoing transaction. It also shows `fromAccount` in second line.
+<Preview>
+  <Story name='Incoming' height='60px'>
+    {{
+      component: TransactionComponent,
+      props: {
+        fromAccount: text('fromAccount', '12345678/0100'),
+        toAccount: text('toAccount', '23456789/0100'),
+        amount: number('amount', 1234),
+        issueDate: text('issueDate', '2020-01-01')
+      }
+    }}
+  </Story>
+</Preview>
+
+# Outgoing Transaction
+Outgoing transaction has standard amount color and minus . It also shows `toAccount` in second line.
+<Preview>
+  <Story name='Outgoing' height='60px'>
+    {{
+      component: TransactionComponent,
+      props: {
+        fromAccount: text('fromAccount', '12345678/0100'),
+        toAccount: text('toAccount', '23456789/0100'),
+        amount: number('amount', -1234),
+        issueDate: text('issueDate', '2020-01-01')
+      }
+    }}
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={TransactionComponent} />

@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ButtonComponent } from './button/button.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionListComponent } from './transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ButtonComponent } from './button/button.component';
     HomeComponent,
     CameraComponent,
     PaymentComponent,
-    ButtonComponent
+    ButtonComponent,
+    TransactionComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,61 @@
+import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
+import {action} from '@storybook/addon-actions';
+import {boolean, text, withKnobs} from '@storybook/addon-knobs';
+import {TransactionListComponent} from '../app/transaction-list/transaction-list.component';
+import {TransactionComponent} from '../app/transaction/transaction.component';
+import { moduleMetadata } from '@storybook/angular';
+
+<Meta title='TransactionList'
+decorators={[
+  withKnobs,
+  moduleMetadata({
+      // imports both components to allow component composition with storybook
+      declarations: [TransactionListComponent, TransactionComponent],
+    }),
+]}
+component={TransactionListComponent}
+parameters={{
+  notes: 'Notes'
+}}/>
+
+# No Transactions
+Do not exist any `transactions`
+<Preview>
+  <Story name='No Transaction' height='60px'>
+    {{
+      component: TransactionListComponent,
+      props: {
+      }
+    }}
+  </Story>
+</Preview>
+
+# Some Transactions
+Rendering `TransactionComponent` list
+<Preview>
+  <Story name='Some Transactions' height='100px'>
+      {{
+        component: TransactionListComponent,
+        props: {
+          transactions: [
+            {
+              fromAccount: '12345678/0100',
+              toAccount: '23456789/0100',
+              amount: 1234,
+              issueDate: '2020-01-01'
+            },{
+              fromAccount: '12345678/0100',
+              toAccount: '23456789/0100',
+              amount: -2345,
+              issueDate: '2020-01-01'
+            }
+          ]
+        }
+      }}
+    </Story>
+</Preview>
+
+
+## Props
+
+<Props of={TransactionListComponent} />
