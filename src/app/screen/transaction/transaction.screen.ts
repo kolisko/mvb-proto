@@ -40,4 +40,13 @@ export class TransactionScreen implements OnInit {
     this.router.navigate(['home']);
   }
 
+  onIncomingClick(): void {
+    const ssValue = this.searchString.nativeElement.value;
+    this.transactions = this.appService.transactions.filter(t => t.amount > 0);
+  }
+
+  onOutgoingClick(): void {
+    const ssValue = this.searchString.nativeElement.value;
+    this.transactions = this.appService.transactions.filter(t => t.amount < 0);
+  }
 }

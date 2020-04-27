@@ -1,10 +1,14 @@
 <div class="container" fxLayout="column">
-  <div fxFlex="20" fxLayoutAlign="space-around center">
+  <div fxFlex="10" fxLayoutAlign="space-around center">
     <mat-form-field class="w-75 mx-1">
       <mat-label>Transaction Search</mat-label>
       <input #searchString matInput>
     </mat-form-field>
-    <button type="button" class="btn btn-secondary w-25 mx-1" (click)="onSearchClick()">Search</button>
+    <button type="button" class="btn btn-primary w-25 mx-1" (click)="onSearchClick()">Search</button>
+  </div>
+  <div fxFlex="10" fxLayoutAlign="space-around center">
+    <button type="button" class="btn btn-secondary w-50 mx-1" (click)="onIncomingClick()">Incoming</button>
+    <button type="button" class="btn btn-secondary w-50 mx-1" (click)="onOutgoingClick()">Outgoing</button>
   </div>
   <div fxFlex="50" fxLayoutAlign="space-around" class="mx-2">
     <app-transaction-list [transactions]="transactions" class="w-100"></app-transaction-list>
