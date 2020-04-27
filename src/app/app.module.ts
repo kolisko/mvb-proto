@@ -20,6 +20,7 @@ import { TransactionComponent } from './component/transaction/transaction.compon
 import { TransactionListComponent } from './component/transaction-list/transaction-list.component';
 import { TransactionScreen } from './screen/transaction/transaction.screen';
 import {CommonModule} from '@angular/common';
+import { PaymentConfirmScreen } from './screen/payment-confirm/payment-confirm.screen';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {CommonModule} from '@angular/common';
     TransactionComponent,
     TransactionListComponent,
     TransactionScreen,
+    PaymentConfirmScreen,
   ],
   imports: [
     BrowserModule,

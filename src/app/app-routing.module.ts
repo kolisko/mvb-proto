@@ -5,6 +5,7 @@ import {HomeComponent} from './screen/home/home.component';
 import {CameraComponent} from './screen/camera/camera.component';
 import {PaymentComponent} from './screen/payment/payment.component';
 import {TransactionScreen} from './screen/transaction/transaction.screen';
+import {PaymentConfirmScreen} from './screen/payment-confirm/payment-confirm.screen';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent
+  },
+  {
+    path: 'payment-confirm',
+    component: PaymentConfirmScreen
   },
   {
     path: 'transaction',

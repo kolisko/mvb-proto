@@ -30,7 +30,7 @@ export class PaymentComponent implements OnInit {
         return;
       }
 
-      this.router.navigate(['home']);
+      this.router.navigate(['payment-confirm']);
     }, error => {
       this.appService.alertMsg = 'AccountOverview Error';
     });
