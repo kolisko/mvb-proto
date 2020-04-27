@@ -1,6 +1,6 @@
 <div class="container" fxLayout="column">
   <div fxFlex="20" fxLayoutAlign="space-around center">
-    <h3>Account balance ${{ appService.balance }}</h3>
+    <h4>Account balance {{ appService.balance | number }} CZK</h4>
   </div>
   <div fxFlex="20" fxLayoutAlign="space-around center">
     <button type="button" class="btn btn-secondary w-50 mx-1">Pay Manually</button>
