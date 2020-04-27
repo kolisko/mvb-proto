@@ -5,19 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { LandingComponent } from './landing/landing.component';
-import { HomeComponent } from './home/home.component';
-import { CameraComponent } from './camera/camera.component';
-import { PaymentComponent } from './payment/payment.component';
+import { LandingComponent } from './screen/landing/landing.component';
+import { HomeComponent } from './screen/home/home.component';
+import { CameraComponent } from './screen/camera/camera.component';
+import { PaymentComponent } from './screen/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AlertModule} from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { ButtonComponent } from './button/button.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { TransactionListComponent } from './transaction-list/transaction-list.component';
+import { ButtonComponent } from './component/button/button.component';
+import { TransactionComponent } from './component/transaction/transaction.component';
+import { TransactionListComponent } from './component/transaction-list/transaction-list.component';
+import { TransactionScreen } from './screen/transaction/transaction.screen';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
     PaymentComponent,
     ButtonComponent,
     TransactionComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    TransactionScreen,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
     HttpClientModule,
     AlertModule.forRoot(),
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

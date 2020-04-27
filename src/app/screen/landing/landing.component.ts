@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {Configuration, MissingKeyConfigurationEnum} from '../../config-loader';
-import {AppService} from '../app.service';
+import {Configuration, MissingKeyConfigurationEnum} from '../../../config-loader';
+import {AppService} from '../../app.service';
 
 @Component({
   selector: 'app-landing',
@@ -19,12 +19,14 @@ export class LandingComponent implements OnInit {
   }
 
   onTouchIdClick(): void {
-    this.httpClient.post(Configuration.get('loginUrl'), null).subscribe((next: any) => {
-      this.appService.email = next.sessionInfo.email;
-      this.appService.clientId = next.sessionInfo.clientId;
-      this.router.navigate(['home']);
-    }, error => {
-      this.appService.alertMsg = 'Authentication Error';
-    });
+    // this.httpClient.post(Configuration.get('loginUrl'), null).subscribe((next: any) => {
+    //   this.appService.email = next.sessionInfo.email;
+    //   this.appService.clientId = next.sessionInfo.clientId;
+    //   this.router.navigate(['home']);
+    // }, error => {
+    //   this.appService.alertMsg = 'Authentication Error';
+    // });
+
+    this.router.navigate(['home']);
   }
 }

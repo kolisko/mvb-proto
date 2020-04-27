@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LandingComponent} from './landing/landing.component';
-import {HomeComponent} from './home/home.component';
-import {CameraComponent} from './camera/camera.component';
-import {PaymentComponent} from './payment/payment.component';
+import {LandingComponent} from './screen/landing/landing.component';
+import {HomeComponent} from './screen/home/home.component';
+import {CameraComponent} from './screen/camera/camera.component';
+import {PaymentComponent} from './screen/payment/payment.component';
+import {TransactionScreen} from './screen/transaction/transaction.screen';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent
+  },
+  {
+    path: 'transaction',
+    component: TransactionScreen
   }
 ];
 

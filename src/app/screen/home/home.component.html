@@ -7,14 +7,7 @@
     <button type="button" class="btn btn-primary w-50 mx-1" (click)="onPayWithQRClick()">Pay with QR</button>
   </div>
   <div fxFlex="20" fxLayoutAlign="space-around center">
-    <mat-form-field class="w-75 mx-1">
-      <mat-label>Transaction Search</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <button type="button" class="btn btn-secondary w-25 mx-1" (click)="onSearchClick()">Search</button>
-  </div>
-  <div fxFlex="30" fxLayoutAlign="space-around center" class="mx-2">
-    <app-transaction-list [transactions]="appService.transactions" class="w-100"></app-transaction-list>
+    <button type="button" class="btn btn-secondary w-100 mx-1" (click)="onTransactionClick()">Transactions</button>
   </div>
   <p></p>
 </div>
