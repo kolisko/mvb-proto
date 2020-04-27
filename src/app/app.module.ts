@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { LandingComponent } from './screen/landing/landing.component';
-import { HomeComponent } from './screen/home/home.component';
-import { CameraComponent } from './screen/camera/camera.component';
-import { PaymentComponent } from './screen/payment/payment.component';
+import { LandingScreen } from './screen/landing/landing.screen';
+import { HomeScreen } from './screen/home/home.screen';
+import { CameraScreen } from './screen/camera/camera.screen';
+import { PaymentScreen } from './screen/payment/payment.screen';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AlertModule} from 'ngx-bootstrap/alert';
@@ -25,10 +25,10 @@ import { PaymentConfirmScreen } from './screen/payment-confirm/payment-confirm.s
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
-    HomeComponent,
-    CameraComponent,
-    PaymentComponent,
+    LandingScreen,
+    HomeScreen,
+    CameraScreen,
+    PaymentScreen,
     ButtonComponent,
     TransactionComponent,
     TransactionListComponent,

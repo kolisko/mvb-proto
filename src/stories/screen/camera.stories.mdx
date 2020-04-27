@@ -1,7 +1,7 @@
 import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
 import {action} from '@storybook/addon-actions';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
-import {CameraComponent} from '../../app/screen/camera/camera.component';
+import {CameraScreen} from '../../app/screen/camera/camera.screen';
 import { moduleMetadata } from '@storybook/angular';
 import {Router} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -10,12 +10,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-<Meta title='Screen/CameraComponent'
+<Meta title='Screen/CameraScreen'
 decorators={[
   withKnobs,
   moduleMetadata({
       // imports both components to allow component composition with storybook
-      declarations: [CameraComponent],
+      declarations: [CameraScreen],
       imports: [
         FlexLayoutModule,
         MatFormFieldModule,
@@ -28,17 +28,17 @@ decorators={[
       ]
     }),
 ]}
-component={CameraComponent}
+component={CameraScreen}
 parameters={{
   notes: 'Notes'
 }}/>
 
-# CameraComponent
-CameraComponent
+# CameraScreen
+CameraScreen
 <Preview>
-  <Story name='CameraComponent' height='600px'>
+  <Story name='CameraScreen' height='600px'>
     {{
-      component: CameraComponent,
+      component: CameraScreen,
       props: {
       }
     }}
@@ -47,4 +47,4 @@ CameraComponent
 
 ## Props
 
-<Props of={CameraComponent} />
+<Props of={CameraScreen} />

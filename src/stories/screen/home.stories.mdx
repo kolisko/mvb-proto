@@ -1,7 +1,7 @@
 import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
 import {action} from '@storybook/addon-actions';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
-import {HomeComponent} from '../../app/screen/home/home.component';
+import {HomeScreen} from '../../app/screen/home/home.screen';
 import { moduleMetadata } from '@storybook/angular';
 import {Router} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -10,12 +10,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-<Meta title='Screen/HomeComponent'
+<Meta title='Screen/HomeScreen'
 decorators={[
   withKnobs,
   moduleMetadata({
       // imports both components to allow component composition with storybook
-      declarations: [HomeComponent],
+      declarations: [HomeScreen],
       imports: [
         FlexLayoutModule,
         MatFormFieldModule,
@@ -28,17 +28,17 @@ decorators={[
       ]
     }),
 ]}
-component={HomeComponent}
+component={HomeScreen}
 parameters={{
   notes: 'Notes'
 }}/>
 
-# HomeComponent
-HomeComponent
+# HomeScreen
+HomeScreen
 <Preview>
-  <Story name='HomeComponent' height='600px'>
+  <Story name='HomeScreen' height='600px'>
     {{
-      component: HomeComponent,
+      component: HomeScreen,
       props: {
       }
     }}
@@ -47,4 +47,4 @@ HomeComponent
 
 ## Props
 
-<Props of={HomeComponent} />
+<Props of={HomeScreen} />

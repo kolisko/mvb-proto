@@ -6,10 +6,10 @@ import {AppService} from '../../app.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.screen.html',
+  styleUrls: ['./home.screen.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeScreen implements OnInit {
 
   constructor(private router: Router,
               // private httpClient: HttpClient,

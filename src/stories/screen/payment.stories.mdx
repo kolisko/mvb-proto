@@ -1,7 +1,7 @@
 import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
 import {action} from '@storybook/addon-actions';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
-import {PaymentComponent} from '../../app/screen/payment/payment.component';
+import {PaymentScreen} from '../../app/screen/payment/payment.screen';
 import { moduleMetadata } from '@storybook/angular';
 import {Router} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -10,12 +10,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-<Meta title='Screen/PaymentComponent'
+<Meta title='Screen/PaymentScreen'
 decorators={[
   withKnobs,
   moduleMetadata({
       // imports both components to allow component composition with storybook
-      declarations: [PaymentComponent],
+      declarations: [PaymentScreen],
       imports: [
         FlexLayoutModule,
         MatFormFieldModule,
@@ -28,17 +28,17 @@ decorators={[
       ]
     }),
 ]}
-component={PaymentComponent}
+component={PaymentScreen}
 parameters={{
   notes: 'Notes'
 }}/>
 
-# PaymentComponent
-PaymentComponent
+# PaymentScreen
+PaymentScreen
 <Preview>
-  <Story name='PaymentComponent' height='600px'>
+  <Story name='PaymentScreen' height='600px'>
     {{
-      component: PaymentComponent,
+      component: PaymentScreen,
       props: {
       }
     }}
@@ -47,4 +47,4 @@ PaymentComponent
 
 ## Props
 
-<Props of={PaymentComponent} />
+<Props of={PaymentScreen} />

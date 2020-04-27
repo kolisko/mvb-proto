@@ -6,10 +6,10 @@ import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-camera',
-  templateUrl: './camera.component.html',
-  styleUrls: ['./camera.component.scss']
+  templateUrl: './camera.screen.html',
+  styleUrls: ['./camera.screen.scss']
 })
-export class CameraComponent implements OnInit {
+export class CameraScreen implements OnInit {
 
   constructor(
     private router: Router,

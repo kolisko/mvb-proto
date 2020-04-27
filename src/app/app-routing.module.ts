@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LandingComponent} from './screen/landing/landing.component';
-import {HomeComponent} from './screen/home/home.component';
-import {CameraComponent} from './screen/camera/camera.component';
-import {PaymentComponent} from './screen/payment/payment.component';
+import {LandingScreen} from './screen/landing/landing.screen';
+import {HomeScreen} from './screen/home/home.screen';
+import {CameraScreen} from './screen/camera/camera.screen';
+import {PaymentScreen} from './screen/payment/payment.screen';
 import {TransactionScreen} from './screen/transaction/transaction.screen';
 import {PaymentConfirmScreen} from './screen/payment-confirm/payment-confirm.screen';
 
@@ -16,19 +16,19 @@ const routes: Routes = [
   },
   {
     path: 'landing',
-    component: LandingComponent
+    component: LandingScreen
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeScreen
   },
   {
     path: 'camera',
-    component: CameraComponent
+    component: CameraScreen
   },
   {
     path: 'payment',
-    component: PaymentComponent
+    component: PaymentScreen
   },
   {
     path: 'payment-confirm',

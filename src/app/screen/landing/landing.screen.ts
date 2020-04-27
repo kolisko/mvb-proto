@@ -6,10 +6,10 @@ import {AppService} from '../../app.service';
 
 @Component({
   selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  templateUrl: './landing.screen.html',
+  styleUrls: ['./landing.screen.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingScreen implements OnInit {
 
   constructor(private router: Router,
               // private httpClient: HttpClient,

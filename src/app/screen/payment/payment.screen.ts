@@ -6,10 +6,10 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  templateUrl: './payment.screen.html',
+  styleUrls: ['./payment.screen.scss']
 })
-export class PaymentComponent implements OnInit {
+export class PaymentScreen implements OnInit {
 
   constructor(
     private router: Router,
