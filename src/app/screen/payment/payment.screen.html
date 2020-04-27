@@ -4,6 +4,10 @@
   </div>
   <div fxFlex="40" fxLayout="column" fxLayoutAlign="space-around center">
     <mat-form-field class="w-100">
+      <mat-label>From Account #</mat-label>
+      <input matInput [value]="appService.accountNumber" disabled>
+    </mat-form-field>
+    <mat-form-field class="w-100">
       <mat-label>Recipient Bank Account #</mat-label>
       <input matInput [value]="appService.piAccount">
     </mat-form-field>
