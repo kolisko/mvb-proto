@@ -11,9 +11,11 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CameraComponent implements OnInit {
 
-  constructor(private router: Router,
-              public appService: AppService,
-              private httpClient: HttpClient) { }
+  constructor(
+    private router: Router,
+    public appService: AppService,
+    // private httpClient: HttpClient
+  ) { }
 
   /**
    * Nejaka dokumentace k testovacimu inputu
@@ -25,22 +27,23 @@ export class CameraComponent implements OnInit {
   }
 
   onUseQRClick(): void {
-    const analyseQrCodeUrl: string = Configuration.get('analyseQrCodeUrl');
-    analyseQrCodeUrl.replace('{clientNumber}', this.appService.clientId);
-    this.httpClient.post(analyseQrCodeUrl, null).subscribe((next: any) => {
-      if (!next.valid) {
-        this.appService.alertMsg = 'QR Code is not valid';
-        return;
-      }
-
-      const pi = next.paymentInstruction;
-      this.appService.piAccount = pi.toAccount;
-      this.appService.piAmount = pi.amount;
-      this.appService.piVS = pi.variableSymbol;
-
-      this.router.navigate(['payment']);
-    }, error => {
-      this.appService.alertMsg = 'QR Code analysing Error';
-    });
+    // const analyseQrCodeUrl: string = Configuration.get('analyseQrCodeUrl');
+    // analyseQrCodeUrl.replace('{clientNumber}', this.appService.clientId);
+    // this.httpClient.post(analyseQrCodeUrl, null).subscribe((next: any) => {
+    //   if (!next.valid) {
+    //     this.appService.alertMsg = 'QR Code is not valid';
+    //     return;
+    //   }
+    //
+    //   const pi = next.paymentInstruction;
+    //   this.appService.piAccount = pi.toAccount;
+    //   this.appService.piAmount = pi.amount;
+    //   this.appService.piVS = pi.variableSymbol;
+    //
+    //   this.router.navigate(['payment']);
+    // }, error => {
+    //   this.appService.alertMsg = 'QR Code analysing Error';
+    // });
+    this.router.navigate(['payment']);
   }
 }

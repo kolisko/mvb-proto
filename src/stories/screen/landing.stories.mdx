@@ -1,0 +1,50 @@
+import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
+import {action} from '@storybook/addon-actions';
+import {boolean, text, withKnobs} from '@storybook/addon-knobs';
+import {LandingComponent} from '../../app/screen/landing/landing.component';
+import { moduleMetadata } from '@storybook/angular';
+import {Router} from '@angular/router';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {AppService} from '../../app/app.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+<Meta title='Screen/LandingComponent'
+decorators={[
+  withKnobs,
+  moduleMetadata({
+      // imports both components to allow component composition with storybook
+      declarations: [LandingComponent],
+      imports: [
+        FlexLayoutModule,
+        MatFormFieldModule,
+        MatInputModule,
+        BrowserAnimationsModule
+      ],
+      providers: [
+        {provide: Router, useValue: {}},
+         AppService
+      ]
+    }),
+]}
+component={LandingComponent}
+parameters={{
+  notes: 'Notes'
+}}/>
+
+# LandingComponent
+LandingComponent
+<Preview>
+  <Story name='LandingComponent' height='600px'>
+    {{
+      component: LandingComponent,
+      props: {
+      }
+    }}
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={LandingComponent} />

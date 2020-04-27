@@ -12,7 +12,7 @@ import {AppService} from '../../app.service';
 export class LandingComponent implements OnInit {
 
   constructor(private router: Router,
-              private httpClient: HttpClient,
+              // private httpClient: HttpClient,
               private appService: AppService) { }
 
   ngOnInit(): void {

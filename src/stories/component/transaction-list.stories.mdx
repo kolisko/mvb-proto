@@ -1,11 +1,11 @@
 import { Meta, Story, Props, ColorPalette, ColorItem, IconGallery, IconItem, Typeset, Preview } from '@storybook/addon-docs/blocks';
 import {action} from '@storybook/addon-actions';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
-import {TransactionListComponent} from '../app/transaction-list/transaction-list.component';
-import {TransactionComponent} from '../app/transaction/transaction.component';
+import {TransactionListComponent} from '../../app/component/transaction-list/transaction-list.component';
+import {TransactionComponent} from '../../app/component/transaction/transaction.component';
 import { moduleMetadata } from '@storybook/angular';
 
-<Meta title='TransactionList'
+<Meta title='Component/TransactionList'
 decorators={[
   withKnobs,
   moduleMetadata({

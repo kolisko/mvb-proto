@@ -12,7 +12,7 @@ import {AppService} from '../../app.service';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
-              private httpClient: HttpClient,
+              // private httpClient: HttpClient,
               public appService: AppService) { }
 
   ngOnInit(): void {
