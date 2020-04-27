@@ -7,6 +7,14 @@ import {Transaction} from '../transaction/transaction';
   styleUrls: ['./transaction-list.component.scss']
 })
 export class TransactionListComponent implements OnInit {
+  /**
+   * [{<br>
+   * *fromAccount: string*<br>
+   * *toAccount: string*<br>
+   * *issueDate: string*<br>
+   * *amount: number*<br>
+   * }]
+   */
   @Input() transactions: Array<Transaction> = [];
 
   constructor() { }

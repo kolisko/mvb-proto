@@ -1085,7 +1085,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <h4>Account balance {{ appService.balance | number }} CZK</h4>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\">Pay Manually</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onPayWithQRClick()\">Pay with QR</button>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-100 mx-1\" (click)=\"onTransactionClick()\">Transactions</button>\n  </div>\n  <p></p>\n</div>\n"
+            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxLayout=\"column\" fxFlex=\"60\" fxLayoutAlign=\"center center\">\n<!--    <div fxLayout=\"row\">-->\n      <h4>Account balance {{ appService.balance | number }} CZK</h4>\n<!--    </div>-->\n<!--    <div class=\"row\">-->\n      <h6>{{ appService.accountNumber }}</h6>\n<!--    </div>-->\n  </div>\n  <div fxFlex=\"10\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-100 mx-1\" (click)=\"onTransactionClick()\">Transactions</button>\n  </div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\">Pay Manually</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onPayWithQRClick()\">Pay with QR</button>\n  </div>\n  <div fxFlex=\"10\"></div>\n</div>\n"
         },
         {
             "name": "LandingScreen",
@@ -1174,7 +1174,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\"><h3>Welcome to KB MVI</h3></div>\n  <div fxFlex=\"40\" fxLayoutAlign=\"space-around center\"><img src=\"assets/kb-logo.svg\" class=\"w-50\"></div>\n  <div fxFlex=\"20\"></div>\n  <div fxFlex=\"10\" >\n    <button (click)=\"onTouchIdClick()\"\n            class=\"btn btn-primary w-100\"\n            type=\"button\">TouchId\n    </button>\n  </div>\n  <div fxFlex=\"10\"></div>\n</div>\n"
+            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\"><h3>Welcome to KB MVI</h3></div>\n  <div fxFlex=\"40\" fxLayoutAlign=\"space-around center\"><img src=\"assets/kb-logo.svg\" class=\"w-50\"></div>\n  <div fxFlex=\"10\"></div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button (click)=\"onTouchIdClick()\"\n            class=\"btn btn-primary w-100\"\n            type=\"button\">TouchId\n    </button>\n  </div>\n  <div fxFlex=\"10\"></div>\n</div>\n"
         },
         {
             "name": "PaymentConfirmScreen",
@@ -1360,7 +1360,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <h5>Payment information found in QR Code:</h5>\n  </div>\n  <div fxFlex=\"40\" fxLayout=\"column\" fxLayoutAlign=\"space-around center\">\n    <mat-form-field class=\"w-100\">\n      <mat-label>Recipient Bank Account #</mat-label>\n      <input matInput [value]=\"appService.piAccount\">\n    </mat-form-field>\n    <mat-form-field class=\"w-100\">\n      <mat-label>Variable Symbol</mat-label>\n      <input matInput [value]=\"appService.piVS\">\n    </mat-form-field>\n    <mat-form-field class=\"w-100\">\n      <mat-label>Amount to send</mat-label>\n      <input matInput [value]=\"appService.piAmount\">\n    </mat-form-field>\n  </div>\n  <div fxFlex></div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\" (click)=\"onCancelClick()\">Cancel</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onSendClick()\">Send</button>\n  </div>\n  <div fxFlex=\"10\"></div>\n</div>\n"
+            "templateData": "<div class=\"container\" fxLayout=\"column\">\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <h5>Payment information found in QR Code:</h5>\n  </div>\n  <div fxFlex=\"40\" fxLayout=\"column\" fxLayoutAlign=\"space-around center\">\n    <mat-form-field class=\"w-100\">\n      <mat-label>From Account #</mat-label>\n      <input matInput [value]=\"appService.accountNumber\" disabled>\n    </mat-form-field>\n    <mat-form-field class=\"w-100\">\n      <mat-label>Recipient Bank Account #</mat-label>\n      <input matInput [value]=\"appService.piAccount\">\n    </mat-form-field>\n    <mat-form-field class=\"w-100\">\n      <mat-label>Variable Symbol</mat-label>\n      <input matInput [value]=\"appService.piVS\">\n    </mat-form-field>\n    <mat-form-field class=\"w-100\">\n      <mat-label>Amount to send</mat-label>\n      <input matInput [value]=\"appService.piAmount\">\n    </mat-form-field>\n  </div>\n  <div fxFlex></div>\n  <div fxFlex=\"20\" fxLayoutAlign=\"space-around center\">\n    <button type=\"button\" class=\"btn btn-secondary w-50 mx-1\" (click)=\"onCancelClick()\">Cancel</button>\n    <button type=\"button\" class=\"btn btn-primary w-50 mx-1\" (click)=\"onSendClick()\">Send</button>\n  </div>\n  <div fxFlex=\"10\"></div>\n</div>\n"
         },
         {
             "name": "TransactionComponent",
@@ -1441,7 +1441,7 @@
         },
         {
             "name": "TransactionListComponent",
-            "id": "component-TransactionListComponent-e4fd63083670d29f23ce748092d35af4",
+            "id": "component-TransactionListComponent-c7104c8a4f720e3c2d06c806ee83049c",
             "file": "src/app/component/transaction-list/transaction-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1461,7 +1461,8 @@
                 {
                     "name": "transactions",
                     "defaultValue": "[]",
-                    "line": 10,
+                    "description": "<p>[{<br>\n<em>fromAccount: string</em><br>\n<em>toAccount: string</em><br>\n<em>issueDate: string</em><br>\n<em>amount: number</em><br>\n}]</p>\n",
+                    "line": 18,
                     "type": "Array<Transaction>"
                 }
             ],
@@ -1479,7 +1480,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 25,
                     "jsdoctags": [
                         {
                             "name": "transactions",
@@ -1496,7 +1497,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14
+                    "line": 22
                 }
             ],
             "hostBindings": [],
@@ -1504,7 +1505,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit} from '@angular/core';\nimport {Transaction} from '../transaction/transaction';\n\n@Component({\n  selector: 'app-transaction-list',\n  templateUrl: './transaction-list.component.html',\n  styleUrls: ['./transaction-list.component.scss']\n})\nexport class TransactionListComponent implements OnInit {\n  @Input() transactions: Array<Transaction> = [];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  isEmpty(transactions: Array<Transaction>): boolean {\n    if (transactions == null || transactions.length <= 0) {\n      return true;\n    }\n    return false;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit} from '@angular/core';\nimport {Transaction} from '../transaction/transaction';\n\n@Component({\n  selector: 'app-transaction-list',\n  templateUrl: './transaction-list.component.html',\n  styleUrls: ['./transaction-list.component.scss']\n})\nexport class TransactionListComponent implements OnInit {\n  /**\n   * [{<br>\n   * *fromAccount: string*<br>\n   * *toAccount: string*<br>\n   * *issueDate: string*<br>\n   * *amount: number*<br>\n   * }]\n   */\n  @Input() transactions: Array<Transaction> = [];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  isEmpty(transactions: Array<Transaction>): boolean {\n    if (transactions == null || transactions.length <= 0) {\n      return true;\n    }\n    return false;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1517,7 +1518,7 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 10
+                "line": 18
             },
             "implements": [
                 "OnInit"
@@ -1951,7 +1952,7 @@
         ]
     },
     "coverage": {
-        "count": 7,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -1995,8 +1996,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TransactionListComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coveragePercent": 20,
+                "coverageCount": "1/5",
                 "status": "low"
             },
             {
