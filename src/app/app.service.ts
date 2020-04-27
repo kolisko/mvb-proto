@@ -32,7 +32,7 @@ export class AppService {
     issueDate: '2020-03-03'}
   ];
 
-  piAccount: string;
-  piAmount: number;
-  piVS: string;
+  piAccount: string = '333444555/0100';
+  piAmount: number = 500;
+  piVS: string = '1212';
 }
